@@ -1,5 +1,6 @@
 import NavBarComponent from "./components/navbar/navbar.component";
 import IntroSection from "./sections/intro/intro.section";
+import OfferingSection from "./sections/offering/offering.section";
 import "./App.css";
 
 function App() {
@@ -7,6 +8,7 @@ function App() {
     <>
       <NavBarComponent />
       <IntroSection />
+      <OfferingSection />
     </>
   );
 }
