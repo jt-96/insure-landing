@@ -43,9 +43,9 @@ function OfferingSection() {
           </div>
         </div>
         <div className="relative flex flex-col items-center bg-[#2c2640] mx-5 py-15">
-          <picture className="absolute right-0 top-0">
+          <picture className="h-full absolute right-0 top-0">
             <source media="(max-width: 375px)" srcSet={workImg} />
-            <img src={workImg} />
+            <img className="h-full" src={workImg} />
           </picture>
           <div className="z-1 flex flex-col items-center">
             <h3 className="text-white text-4xl text-center mx-5 mb-5">
