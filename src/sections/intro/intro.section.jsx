@@ -16,10 +16,10 @@ function IntroSection() {
           <img src={bgLeftIntroImage} />
         </picture>
         <div className="flex flex-col items-center text-center">
-          <h1 className="dm-serif-display-regular !text-5xl whitespace-pre-line px-10">
-            Humanizing your insurance.
+          <h1 className="dm-serif-display-regular text-[2.50rem] leading-10 whitespace-pre-line px-5 z-1">
+            <span className="block">Humanizing</span> <span className="block">your insurance.</span>
           </h1>
-          <p className="karla-400 !text-lg px-8 mt-6">
+          <p className="karla-400 text-md px-8 mt-6">
             Get your life insurance coverage easier and faster. We blend our
             expertise and technology to help you find the plan that's right for
             you. Ensure you and your loved ones are protected.
