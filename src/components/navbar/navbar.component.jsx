@@ -14,7 +14,7 @@ function NavBarComponent() {
   ];
 
   return (
-    <div className="sticky top-0">
+    <div className="sticky top-0 z-2">
       <div className="flex bg-white items-center justify-between w-full p-8">
         <img src={insureLogo} alt="Insure Logo" />
 
@@ -41,12 +41,12 @@ function NavBarComponent() {
       </div>
 
       <div
-        className={`${isOpen ? "flex" : "hidden"} fixed w-full flex-col items-center pt-8 pb-70 bg-[url('assets/bg-pattern-mobile-nav.svg')] bg-no-repeat bg-bottom bg-cover`}
+        className={`${isOpen ? "flex" : "hidden"} fixed w-full flex-col items-center pt-8 pb-70 bg-[#2c2640] bg-[url('assets/bg-pattern-mobile-nav.svg')] bg-no-repeat bg-bottom bg-contain`}
       >
         {navLinks.map((link) => (
           <a
             key={link.label}
-            className="w-75 p-4 m-2 border-2 border-transparent transition duration-300 hover:border-white"
+            className="w-75 p-4 m-2 border-2 border-transparent text-center text-white karla-400 transition duration-300 text-white hover:border-white"
             href={link.href}
           >
             {link.label}
