@@ -42,20 +42,22 @@ function OfferingSection() {
             </p>
           </div>
         </div>
-        <div className="relative flex flex-col items-center bg-[#2c2640] mx-10 py-15">
-          <picture className="absolute right-0 bottom-5">
+        <div className="relative flex flex-col items-center bg-[#2c2640] mx-5 py-15">
+          <picture className="absolute right-0 top-0">
             <source media="(max-width: 375px)" srcSet={workImg} />
             <img src={workImg} />
           </picture>
-          <h3 className="text-white text-4xl text-center mx-5 mb-5">
-            Find out more about how we work
-          </h3>
-          <a
-            className="karla-700 mt-8 border-2 tracking-widest py-2 px-4 text-white"
-            href="#"
-          >
-            HOW WE WORK
-          </a>
+          <div className="z-1 flex flex-col items-center">
+            <h3 className="text-white text-4xl text-center mx-5 mb-5">
+              Find out more about how we work
+            </h3>
+            <a
+              className="karla-700 mt-8 border-2 tracking-widest py-2 px-4 text-white"
+              href="#"
+            >
+              HOW WE WORK
+            </a>
+          </div>
         </div>
       </div>
     </>
