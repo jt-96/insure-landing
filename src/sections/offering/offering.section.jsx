@@ -12,7 +12,7 @@ function OfferingSection() {
         </div>
         <h2 className="mt-10 mb-20 text-center text-5xl">We're different</h2>
 
-        <div className="px-10">
+        <div className="px-10 mb-30">
           <div className="flex flex-col items-center text-center my-10">
             <img className="mb-5" src={snappyImg} alt="Snappy Process Icon" />
             <h3 className="my-2 text-2xl">Snappy Process</h3>
