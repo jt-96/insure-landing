@@ -15,14 +15,14 @@ function NavBarComponent() {
 
   return (
     <div className="sticky top-0 z-2">
-      <div className="flex bg-white items-center justify-between w-full p-8">
+      <div className="flex bg-white items-center justify-between w-full p-8 py-2 md:px-10 lg:px-20">
         <img src={insureLogo} alt="Insure Logo" />
 
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center md:flex gap-4">
           {navLinks.map((link) => (
             <a
               key={link.label}
-              className="text-sm font-medium text-slate-700 transition duration-300 hover:text-slate-900"
+              className="px-4 py-2 m-2 border-2 border-transparent text-center text-gray-400 karla-700 transition duration-300 hover:border-black hover:text-black md:px-2 mx-0 text-sm"
               href={link.href}
             >
               {link.label}
