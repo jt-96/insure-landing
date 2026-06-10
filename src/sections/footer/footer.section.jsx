@@ -20,7 +20,7 @@ function FooterSection() {
           </div>
         </div>
 
-        <div className="flex items-center justify-center my-10">
+        <div className="flex items-center justify-center mt-10 mb-5">
           <hr className="w-72 border-1 border-gray-300" />
         </div>
 
