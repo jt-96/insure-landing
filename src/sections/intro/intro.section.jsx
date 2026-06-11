@@ -17,7 +17,7 @@ function IntroSection() {
           <source media="(max-width: 375px)" srcSet={bgLeftPatternIntroImage} />
           <img src={bgLeftPatternIntroImage} />
         </picture>
-        <picture className="max-sm:hidden absolute top-50 left-0 z-0">
+        <picture className="max-sm:hidden absolute top-50 left-0 z-0 lg:top-75">
           <source
             media="(min-width: 375px)"
             srcSet={bgLeftPatternIntroImageDesktop}
@@ -29,24 +29,24 @@ function IntroSection() {
             media="(min-width: 375px)"
             srcSet={bgRightPatternIntroImageDesktop}
           />
-          <img className="h-62" src={bgRightPatternIntroImageDesktop} />
+          <img className="h-62 lg:w-full lg:h-96" src={bgRightPatternIntroImageDesktop} />
         </picture>
-        <div className="md:flex items-center relative z-1">
-          <div className="flex flex-col items-center text-center md:items-start md:text-left mx-5 md:w-90">
-            <div className="max-sm:hidden flex items-center justify-center px-5 mb-10">
+        <div className="md:flex items-center relative z-1 w-full">
+          <div className="flex flex-col items-center text-center md:items-start md:text-left mx-5 md:w-90 lg:w-1/2">
+            <div className="max-sm:hidden flex items-center justify-center px-5 mb-10 lg:px-15">
               <hr className="w-40 border-1 border-gray-300" />
             </div>
-            <h1 className="dm-serif-display-regular text-[2.50rem] leading-10 whitespace-pre-line px-5 md:text-[2.70rem]">
+            <h1 className="dm-serif-display-regular text-[2.50rem] leading-10 whitespace-pre-line px-5 md:text-[2.70rem] lg:px-15">
               <span className="block">Humanizing</span>
               <span className="block">your insurance.</span>
             </h1>
-            <p className="karla-400 text-md px-8 mt-6 md:px-5 text-sm text-gray-300">
+            <p className="karla-400 text-md px-8 mt-6 md:px-5 text-sm text-gray-300 lg:px-15">
               Get your life insurance coverage easier and faster. We blend our
               expertise and technology to help you find the plan that's right
               for you. Ensure you and your loved ones are protected.
             </p>
             <a
-              className="karla-400 mt-8 border-2 tracking-widest py-2 px-6 md:mx-5 md:text-sm"
+              className="karla-400 mt-8 border-2 tracking-widest py-2 px-6 md:mx-5 md:text-sm lg:mx-15"
               href="#"
             >
               VIEW PLANS
@@ -59,7 +59,7 @@ function IntroSection() {
               <img src={bgRightPatternIntroImage} />
             </picture>
           </div>
-          <picture className="max-sm:hidden absolute w-80 mr-5 top-0 right-0 lg:top-30">
+          <picture className="max-sm:hidden absolute w-80 mr-5 top-0 right-0 lg:top-0 lg:right-15 lg:w-90">
             <source media="(max-width: 375px)" srcSet={desktopIntroImage} />
             <img src={desktopIntroImage} alt="Desktop intro" />
           </picture>
