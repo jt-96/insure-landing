@@ -14,7 +14,7 @@ function NavBarComponent() {
   ];
 
   return (
-    <div className="sticky top-0 z-2">
+    <div className="sticky top-0 z-999">
       <div className="flex bg-white items-center justify-between w-full p-8 py-2 md:px-10 lg:px-20">
         <img src={insureLogo} alt="Insure Logo" />
 
