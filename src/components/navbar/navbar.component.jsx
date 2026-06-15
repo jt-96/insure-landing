@@ -15,14 +15,14 @@ function NavBarComponent() {
 
   return (
     <div className="sticky top-0 z-999">
-      <div className="flex bg-white items-center justify-between w-full p-8 py-2 md:px-10 lg:px-20">
+      <div className="flex bg-white items-center justify-between w-full px-8 py-2 md:px-10 lg:px-20">
         <img src={insureLogo} alt="Insure Logo" />
 
-        <div className="hidden items-center md:flex gap-4">
+        <div className="hidden items-center md:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
-              className="px-4 py-2 m-2 border-2 border-transparent text-center text-gray-400 karla-700 transition duration-300 hover:border-black hover:text-black md:px-2 mx-0 text-sm"
+              className="px-4 py-2 m-2 border-2 border-transparent text-center text-gray-400 transition duration-300 hover:border-black hover:text-black md:px-2 mx-0 text-sm"
               href={link.href}
             >
               {link.label}
@@ -41,12 +41,12 @@ function NavBarComponent() {
       </div>
 
       <div
-        className={`${isOpen ? "flex" : "hidden"} fixed w-full flex-col items-center pt-8 pb-70 bg-[#2c2640] bg-[url('assets/bg-pattern-mobile-nav.svg')] bg-no-repeat bg-bottom bg-contain`}
+        className={`${isOpen ? "flex" : "hidden"} flex-col items-center py-8 bg-[#2c2640] bg-[url('assets/bg-pattern-mobile-nav.svg')] bg-no-repeat bg-bottom bg-contain`}
       >
         {navLinks.map((link) => (
           <a
             key={link.label}
-            className="w-75 p-4 m-2 border-2 border-transparent text-center text-white karla-400 transition duration-300 text-white hover:border-white"
+            className="p-4 m-2 border-2 border-transparent text-white transition duration-300 text-white hover:border-white"
             href={link.href}
           >
             {link.label}
