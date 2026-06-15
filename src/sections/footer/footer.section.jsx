@@ -26,7 +26,7 @@ function FooterSection() {
           <hr className="w-72 border-1 border-gray-300 lg:w-full lg:mx-20" />
         </div>
 
-        <div className="flex flex-col mb-10 lg:flex-row lg:w-full lg:px-20">
+        <div className="flex flex-col z-1 mb-10 lg:flex-row lg:w-full lg:px-20">
           <div className="flex flex-col items-center mb-10 lg:items-start lg:mr-30 xl:mr-60">
             <p className="my-5 karla-700 text-gray-400">OUR COMPANY</p>
             <a href="#" className="my-2 karla-700">HOW WE WORK</a>
