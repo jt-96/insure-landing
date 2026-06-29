@@ -5,8 +5,6 @@ import insureLogo from "../../assets/logo.svg";
 import iconHamburger from "../../assets/icon-hamburger.svg";
 import iconHamburgerClose from "../../assets/icon-close.svg";
 
-gsap.registerPlugin(useGSAP);
-
 function NavBarComponent() {
   const [isOpen, setIsOpen] = useState(false);
   const iconSrc = isOpen ? iconHamburgerClose : iconHamburger;
