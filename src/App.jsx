@@ -5,10 +5,12 @@ import FooterSection from "./sections/footer/footer.section";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import "./App.css";
 
 gsap.registerPlugin(useGSAP);
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(SplitText);
 
 function App() {
   return (
