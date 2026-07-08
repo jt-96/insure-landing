@@ -72,7 +72,7 @@ function IntroSection() {
 
   return (
     <>
-      <div className="">
+      <div>
         <picture className="md:hidden">
           <source media="(max-width: 425px)" srcSet={mobileIntroImage} />
           <img className="w-full" src={mobileIntroImage} alt="Mobile intro" />
