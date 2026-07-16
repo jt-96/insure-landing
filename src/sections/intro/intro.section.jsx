@@ -7,66 +7,126 @@ import bgRightPatternIntroImageDesktop from "../../assets/bg-pattern-intro-right
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { SplitText } from "gsap/SplitText";
+import { mm, breakpoints } from "../../animations/matchMedia";
 
 function IntroSection() {
   useGSAP(() => {
-    gsap.to(".intro-title", {
-      y: -10,
-      opacity: 1,
-      scrollTrigger: {
-        trigger: ".intro",
-        start: "top center",
-        end: "top 100px",
-        toggleActions: "play reverse play reverse",
-      },
-    });
+    //DESKTOP ANIMATIONS
+    mm.add(breakpoints.isDesktop, () => {
+      gsap.from(".intro-title", {
+        y: 10,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
 
-    document.fonts.ready.then(() => {
-      let split = SplitText.create(".intro-subtitle", {
-        type: "words, lines",
-        autoSplit: true,
-        onSplit: (self) => {
-          return gsap.from(self.lines, {
-            y: 25,
-            autoAlpha: 0,
-            stagger: 0.05,
-            delay: 0.75,
-            scrollTrigger: {
-              trigger: ".intro",
-              start: "top center",
-              end: "top 100px",
-              // markers: true,
-              toggleActions: "play reverse play reverse",
-            },
-          });
+      document.fonts.ready.then(() => {
+        let split = SplitText.create(".intro-subtitle", {
+          type: "words, lines",
+          autoSplit: true,
+          onSplit: (self) => {
+            return gsap.from(self.lines, {
+              y: 25,
+              autoAlpha: 0,
+              stagger: 0.05,
+              delay: 0.75,
+              scrollTrigger: {
+                trigger: ".intro",
+                start: "top center",
+                end: "bottom center",
+                toggleActions: "play reverse play reverse",
+              },
+            });
+          },
+        });
+      });
+
+      gsap.from(".left-pattern-desktop-svg", {
+        ease: "none",
+        drawSVG: "0",
+        duration: 3,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "center center",
+          end: "850px center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".right-pattern-desktop-svg", {
+        ease: "none",
+        drawSVG: "0",
+        duration: 3,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top center",
+          end: "800px center",
+          toggleActions: "play reverse play reverse",
         },
       });
     });
 
-    gsap.from(".left-pattern-mobile-svg", {
-      ease: "none",
-      drawSVG: "0",
-      stagger: 0.5,
-      scrollTrigger: {
-        trigger: ".intro",
-        start: "-50px center",
-        end: "500px center",
-        scrub: 1,
-        // markers: true,
-      },
-    });
+    //MOBILE ANIMATIONS
+    mm.add(breakpoints.isMobile, () => {
+      gsap.from(".intro-title", {
+        y: 10,
+        opacity: 0,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top center",
+          end: "top 100px",
+          toggleActions: "play reverse play reverse",
+        },
+      });
 
-    gsap.from(".right-pattern-mobile-svg", {
-      ease: "none",
-      drawSVG: "0",
-      stagger: 0.5,
-      scrollTrigger: {
-        trigger: ".intro",
-        start: "top center",
-        end: "500px center",
-        scrub: 1,
-        // markers: true,
-      },
+      document.fonts.ready.then(() => {
+        let split = SplitText.create(".intro-subtitle", {
+          type: "words, lines",
+          autoSplit: true,
+          onSplit: (self) => {
+            return gsap.from(self.lines, {
+              y: 25,
+              autoAlpha: 0,
+              stagger: 0.05,
+              delay: 0.75,
+              scrollTrigger: {
+                trigger: ".intro",
+                start: "top center",
+                end: "top 100px",
+                toggleActions: "play reverse play reverse",
+              },
+            });
+          },
+        });
+      });
+
+      gsap.from(".left-pattern-mobile-svg", {
+        ease: "none",
+        drawSVG: "0",
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "-50px center",
+          end: "500px center",
+          scrub: 1,
+        },
+      });
+
+      gsap.from(".right-pattern-mobile-svg", {
+        ease: "none",
+        drawSVG: "0",
+        stagger: 0.5,
+        scrollTrigger: {
+          trigger: ".intro",
+          start: "top center",
+          end: "500px center",
+          scrub: 1,
+        },
+      });
     });
   });
 
@@ -115,29 +175,81 @@ function IntroSection() {
             />
           </g>
         </svg>
-        <picture className="max-sm:hidden absolute top-50 left-0 z-0 lg:top-75">
-          <source
-            media="(min-width: 375px)"
-            srcSet={bgLeftPatternIntroImageDesktop}
-          />
-          <img className="h-75" src={bgLeftPatternIntroImageDesktop} />
-        </picture>
-        <picture className="max-sm:hidden absolute top-0 right-0 z-2">
-          <source
-            media="(min-width: 375px)"
-            srcSet={bgRightPatternIntroImageDesktop}
-          />
-          <img
-            className="h-62 lg:w-full lg:h-96"
-            src={bgRightPatternIntroImageDesktop}
-          />
-        </picture>
+        {/* LEFT PATTERN DESKTOP IMAGE */}
+        <svg
+          className="max-sm:hidden absolute top-50 left-0 z-0 lg:top-75"
+          xmlns="http://www.w3.org/2000/svg"
+          width="195"
+          height="504"
+        >
+          <g fill="none" fill-rule="evenodd" stroke="#9E96C6">
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-162.361 17.325c-75.703-23.693-153.543-63.212-233.235 8.97-79.693 72.182-129.794 135.414-97.44 217.227 32.354 81.814 164.422 30.855 202.794 103.977 38.373 73.122-45.94 139.485-9.591 204.563 36.35 65.078 64.3 106.787 181.115 65.409C-1.902 576.092-12.673 470.807 76.16 409.153c88.833-61.654 184.944-153.953 53.046-318.647S-86.659 41.02-162.36 17.326z"
+            />
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-152.895 55.249c-61.583-19.24-124.905-51.33-189.734 7.283-64.828 58.614-105.585 109.959-79.266 176.393 26.32 66.434 133.755 25.055 164.971 84.43 31.216 59.377-37.372 113.266-7.802 166.11 29.57 52.845 52.306 86.713 147.334 53.113 95.028-33.6 86.267-119.094 158.53-169.158 72.265-50.064 150.45-125.012 43.153-258.747S-91.312 74.489-152.895 55.249z"
+            />
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-135.188 80.417C-185.15 64.72-236.522 38.535-289.117 86.36c-52.594 47.825-85.66 89.72-64.307 143.926 21.353 54.206 108.513 20.443 133.838 68.89 25.325 48.448-30.32 92.418-6.33 135.536 23.99 43.117 42.436 70.752 119.531 43.336 77.095-27.415 69.987-97.173 128.614-138.022 58.627-40.85 122.058-102.003 35.009-211.122-87.049-109.12-142.465-32.788-192.426-48.487z"
+            />
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-116.684 111.184c-40.295-12.596-81.728-33.603-124.147 4.768-42.419 38.371-69.087 71.984-51.865 115.475 17.221 43.491 87.518 16.402 107.943 55.273 20.425 38.87-24.453 74.148-5.105 108.743s34.225 56.767 96.404 34.77c62.179-21.996 56.446-77.965 103.73-110.739 47.284-32.774 98.442-81.839 28.236-169.388-70.207-87.55-114.901-26.307-155.196-38.902z"
+            />
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-111.917 131.046c-32.91-10.295-66.749-27.467-101.393 3.897-34.643 31.365-56.424 58.84-42.358 94.389 14.065 35.549 71.477 13.407 88.158 45.179 16.682 31.772-19.971 60.609-4.17 88.886 15.803 28.277 27.953 46.4 78.735 28.42 50.782-17.979 46.1-63.727 84.718-90.516 38.617-26.79 80.398-66.895 23.06-138.457-57.339-71.562-93.841-21.503-126.75-31.798z"
+            />
+            <path
+              className="left-pattern-desktop-svg"
+              d="M-102.775 145.406c-26.718-8.36-54.191-22.305-82.318 3.165-28.127 25.47-45.81 47.78-34.39 76.649 11.419 28.868 58.03 10.887 71.574 36.688 13.544 25.8-16.214 49.217-3.385 72.18 12.83 22.963 22.694 37.68 63.923 23.08 41.229-14.6 37.428-51.75 68.78-73.505C12.762 261.908 46.684 229.34.132 171.228c-46.553-58.112-76.188-17.462-102.907-25.822z"
+            />
+          </g>
+        </svg>
+        {/* RIGHT PATTERN DESKTOP IMAGE */}
+        <svg
+          className="max-sm:hidden absolute top-0 left-80 z-2 h-72 lg:w-full lg:h-96"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 436 593"
+          width="100%"
+          height="100%"
+        >
+          <g fill="none" fill-rule="evenodd" stroke="#96A9C6">
+            <path
+              className="right-pattern-desktop-svg"
+              d="M341.639-24.675c-75.703-23.693-153.543-63.212-233.235 8.97C28.71 56.477-21.39 119.709 10.964 201.522c32.354 81.814 164.422 30.855 202.794 103.977 38.373 73.122-45.94 139.485-9.591 204.563 36.35 65.078 64.3 106.787 181.115 65.409 116.816-41.379 106.045-146.664 194.878-208.318 88.833-61.654 184.944-153.953 53.046-318.647S417.341-.98 341.64-24.674z"
+            />
+            <path
+              className="right-pattern-desktop-svg"
+              d="M351.105 13.249c-61.583-19.24-124.905-51.33-189.734 7.283C96.543 79.146 55.786 130.491 82.105 196.925c26.32 66.434 133.755 25.055 164.971 84.43 31.216 59.377-37.372 113.266-7.802 166.11 29.57 52.845 52.306 86.713 147.334 53.113 95.028-33.6 86.267-119.094 158.53-169.158 72.265-50.064 150.45-125.012 43.153-258.747S412.688 32.489 351.105 13.249z"
+            />
+            <path
+              className="right-pattern-desktop-svg"
+              d="M368.812 38.417C318.85 22.72 267.478-3.465 214.883 44.36c-52.594 47.825-85.66 89.72-64.307 143.926 21.353 54.206 108.513 20.443 133.838 68.89 25.325 48.448-30.32 92.418-6.33 135.536 23.99 43.117 42.436 70.752 119.531 43.336 77.095-27.415 69.987-97.173 128.614-138.022 58.627-40.85 122.058-102.003 35.009-211.122-87.049-109.12-142.465-32.788-192.426-48.487z"
+            />
+            <path
+              className="right-pattern-desktop-svg"
+              d="M387.316 69.184c-40.295-12.596-81.728-33.603-124.147 4.768-42.419 38.371-69.087 71.984-51.865 115.475 17.221 43.491 87.518 16.402 107.943 55.273 20.425 38.87-24.453 74.148-5.105 108.743s34.225 56.767 96.404 34.77c62.179-21.996 56.446-77.965 103.73-110.739 47.284-32.774 98.442-81.839 28.236-169.388-70.207-87.55-114.901-26.307-155.196-38.902z"
+            />
+            <path
+              className="right-pattern-desktop-svg"
+              d="M392.083 89.046c-32.91-10.295-66.749-27.467-101.393 3.897-34.643 31.365-56.424 58.84-42.358 94.389 14.065 35.549 71.477 13.407 88.158 45.179 16.682 31.772-19.971 60.609-4.17 88.886 15.803 28.277 27.953 46.4 78.735 28.42 50.782-17.979 46.1-63.727 84.718-90.516 38.617-26.79 80.398-66.895 23.06-138.457-57.339-71.562-93.841-21.503-126.75-31.798z"
+            />
+            <path
+              className="right-pattern-desktop-svg"
+              d="M401.225 103.406c-26.718-8.36-54.191-22.305-82.318 3.165-28.127 25.47-45.81 47.78-34.39 76.649 11.419 28.868 58.03 10.887 71.574 36.688 13.544 25.8-16.214 49.217-3.385 72.18 12.83 22.963 22.694 37.68 63.923 23.08 41.229-14.6 37.428-51.75 68.78-73.505 31.353-21.755 65.275-54.323 18.723-112.435-46.553-58.112-76.188-17.462-102.907-25.822z"
+            />
+          </g>
+        </svg>
         <div className="md:flex items-center relative z-1 w-full">
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:mx-5 md:w-90 lg:w-1/2">
             <div className="max-sm:hidden px-5 mb-10 lg:px-15">
               <hr className="w-40 border-1 border-gray-200" />
             </div>
-            <h1 className="intro-title opacity-0 text-[2.30rem] leading-10 md:px-5 md:text-[2.70rem] lg:px-15">
+            <h1 className="intro-title text-[2.30rem] leading-10 md:px-5 md:text-[2.70rem] lg:px-15">
               <span className="block">Humanizing</span>
               <span className="block">your insurance.</span>
             </h1>
@@ -153,12 +265,34 @@ function IntroSection() {
               VIEW PLANS
             </a>
             {/* RIGHT PATTERN MOBILE IMAGE */}
-            <svg className="absolute right-0 -bottom-50 md:hidden" xmlns="http://www.w3.org/2000/svg" width="124" height="330">
-              <g fill="none" fill-rule="evenodd" stroke="#9E96C6" stroke-width="1">
-                <path className="right-pattern-mobile-svg" d="M185.248 17.983c-40.947-12.815-83.05-34.188-126.155 4.85C15.99 61.874-11.11 96.07 6.39 140.318c17.5 44.247 88.934 16.687 109.69 56.234 20.755 39.547-24.85 75.438-5.188 110.635 19.661 35.196 34.779 57.753 97.963 35.374 63.185-22.378 57.359-79.32 105.408-112.665 48.048-33.344 100.034-83.262 28.692-172.334-71.342-89.072-116.76-26.764-157.706-39.578z" />
-                <path className="right-pattern-mobile-svg" d="M190.037 40.695c-33.343-10.405-67.629-27.759-102.73 3.94-35.101 31.697-57.17 59.464-42.918 95.392 14.25 35.927 72.42 13.55 89.322 45.66s-20.235 61.253-4.224 89.831c16.01 28.578 28.321 46.894 79.774 28.723 51.452-18.17 46.708-64.405 85.835-91.48 39.128-27.074 81.46-67.606 23.365-139.93-58.096-72.323-95.08-21.73-128.424-32.136z" />
-                <path className="right-pattern-mobile-svg" d="M200.203 54.055c-26.936-8.47-54.632-22.596-82.988 3.207-28.355 25.803-46.182 48.407-34.67 77.653 11.512 29.246 58.503 11.03 72.157 37.169 13.653 26.139-16.347 49.862-3.413 73.126 12.934 23.263 22.878 38.173 64.443 23.381 41.564-14.791 37.732-52.428 69.34-74.468 31.607-22.04 65.804-55.034 18.874-113.907-46.93-58.874-76.807-17.69-103.743-26.16z" />
-                <path className="right-pattern-mobile-svg" d="M210.233 71.814c-21.831-6.827-44.279-18.214-67.26 2.585-22.982 20.798-37.43 39.017-28.1 62.59 9.33 23.574 47.416 8.89 58.482 29.96 11.066 21.069-13.248 40.19-2.766 58.942 10.482 18.751 18.543 30.769 52.23 18.846 33.687-11.922 30.581-42.259 56.198-60.024 25.618-17.764 53.334-44.359 15.298-91.813-38.037-47.454-62.251-14.259-84.082-21.086z" />
+            <svg
+              className="absolute right-0 -bottom-50 md:hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              width="124"
+              height="330"
+            >
+              <g
+                fill="none"
+                fill-rule="evenodd"
+                stroke="#9E96C6"
+                stroke-width="1"
+              >
+                <path
+                  className="right-pattern-mobile-svg"
+                  d="M185.248 17.983c-40.947-12.815-83.05-34.188-126.155 4.85C15.99 61.874-11.11 96.07 6.39 140.318c17.5 44.247 88.934 16.687 109.69 56.234 20.755 39.547-24.85 75.438-5.188 110.635 19.661 35.196 34.779 57.753 97.963 35.374 63.185-22.378 57.359-79.32 105.408-112.665 48.048-33.344 100.034-83.262 28.692-172.334-71.342-89.072-116.76-26.764-157.706-39.578z"
+                />
+                <path
+                  className="right-pattern-mobile-svg"
+                  d="M190.037 40.695c-33.343-10.405-67.629-27.759-102.73 3.94-35.101 31.697-57.17 59.464-42.918 95.392 14.25 35.927 72.42 13.55 89.322 45.66s-20.235 61.253-4.224 89.831c16.01 28.578 28.321 46.894 79.774 28.723 51.452-18.17 46.708-64.405 85.835-91.48 39.128-27.074 81.46-67.606 23.365-139.93-58.096-72.323-95.08-21.73-128.424-32.136z"
+                />
+                <path
+                  className="right-pattern-mobile-svg"
+                  d="M200.203 54.055c-26.936-8.47-54.632-22.596-82.988 3.207-28.355 25.803-46.182 48.407-34.67 77.653 11.512 29.246 58.503 11.03 72.157 37.169 13.653 26.139-16.347 49.862-3.413 73.126 12.934 23.263 22.878 38.173 64.443 23.381 41.564-14.791 37.732-52.428 69.34-74.468 31.607-22.04 65.804-55.034 18.874-113.907-46.93-58.874-76.807-17.69-103.743-26.16z"
+                />
+                <path
+                  className="right-pattern-mobile-svg"
+                  d="M210.233 71.814c-21.831-6.827-44.279-18.214-67.26 2.585-22.982 20.798-37.43 39.017-28.1 62.59 9.33 23.574 47.416 8.89 58.482 29.96 11.066 21.069-13.248 40.19-2.766 58.942 10.482 18.751 18.543 30.769 52.23 18.846 33.687-11.922 30.581-42.259 56.198-60.024 25.618-17.764 53.334-44.359 15.298-91.813-38.037-47.454-62.251-14.259-84.082-21.086z"
+                />
               </g>
             </svg>
           </div>
