@@ -138,7 +138,7 @@ function IntroSection() {
           <img className="w-full" src={mobileIntroImage} alt="Mobile intro" />
         </picture>
       </div>
-      <div className="intro relative bg-[#2c2640] text-white pt-20 pb-10 md:py-20">
+      <div className="intro flex justify-center relative bg-[#2c2640] text-white pt-20 pb-10 md:py-20">
         {/* PREVIOUS IMPLEMENTATION */}
         {/* NOT WORKING WITH GSAP SINCE THIS DOES NOT ALLOW FOR MANIPULATION */}
         {/* <picture className="absolute top-0 left-0 md:hidden">
@@ -177,10 +177,9 @@ function IntroSection() {
         </svg>
         {/* LEFT PATTERN DESKTOP IMAGE */}
         <svg
-          className="max-sm:hidden absolute top-50 left-0 z-0 lg:top-75"
+          className="max-sm:hidden absolute top-50 left-0 z-0 h-96"
           xmlns="http://www.w3.org/2000/svg"
-          width="195"
-          height="504"
+          viewBox="0 0 195 504"
         >
           <g fill="none" fill-rule="evenodd" stroke="#9E96C6">
             <path
@@ -211,11 +210,12 @@ function IntroSection() {
         </svg>
         {/* RIGHT PATTERN DESKTOP IMAGE */}
         <svg
-          className="max-sm:hidden absolute top-0 left-80 z-2 h-72 lg:w-full lg:h-96"
+          className="max-sm:hidden absolute top-0 right-0 z-2 h-72 lg:w-full lg:h-full"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 436 593"
           width="100%"
           height="100%"
+          preserveAspectRatio="xMaxYMin meet"
         >
           <g fill="none" fill-rule="evenodd" stroke="#96A9C6">
             <path
@@ -244,7 +244,7 @@ function IntroSection() {
             />
           </g>
         </svg>
-        <div className="md:flex items-center relative z-1 w-full">
+        <div className="relative z-1 w-full xl:w-[70%]">
           <div className="flex flex-col items-center text-center md:items-start md:text-left md:mx-5 md:w-90 lg:w-1/2">
             <div className="max-sm:hidden px-5 mb-10 lg:px-15">
               <hr className="w-40 border-1 border-gray-200" />
@@ -296,7 +296,7 @@ function IntroSection() {
               </g>
             </svg>
           </div>
-          <picture className="max-sm:hidden absolute w-80 mr-5 top-5 right-0 lg:top-0 lg:right-15 lg:w-90">
+          <picture className="max-sm:hidden absolute w-80 mr-5 top-5 right-0 lg:top-0 lg:right-0 lg:w-90">
             <source media="(max-width: 375px)" srcSet={desktopIntroImage} />
             <img src={desktopIntroImage} alt="Desktop intro" />
           </picture>
