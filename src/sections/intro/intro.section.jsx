@@ -19,7 +19,7 @@ function IntroSection() {
         scrollTrigger: {
           trigger: ".intro",
           start: "top center",
-          end: "bottom center",
+          end: "center top",
           toggleActions: "play reverse play reverse",
         },
       });
@@ -37,7 +37,7 @@ function IntroSection() {
               scrollTrigger: {
                 trigger: ".intro",
                 start: "top center",
-                end: "bottom center",
+                end: "center top",
                 toggleActions: "play reverse play reverse",
               },
             });
