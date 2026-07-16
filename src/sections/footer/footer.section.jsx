@@ -7,51 +7,95 @@ import bgFooterMobile from "../../assets/bg-pattern-footer-mobile.svg";
 import bgFooterDesktop from "../../assets/bg-pattern-footer-desktop.svg";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import { mm, breakpoints } from "../../animations/matchMedia";
 
 function FooterSection() {
   useGSAP(() => {
-    gsap.from(".footer-mobile-bg-pattern", {
-      ease: "none",
-      drawSVG: "0",
-      duration: 2,
-      scrollTrigger: {
-        trigger: ".footer-container",
-        start: "-50px center",
-        end: "500px center",
-        toggleActions: "play reverse play reverse",
-        // markers: true,
-      },
+    //DESKTOP ANIMATIONS
+    mm.add(breakpoints.isDesktop, () => {
+      gsap.from(".footer-desktop-bg-pattern", {
+        ease: "none",
+        drawSVG: "0",
+        duration: 2,
+        scrollTrigger: {
+          trigger: ".footer-container",
+          start: "-150px center",
+          end: "center center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".footer-logo, .footer-socials-logo", {
+        y: 10,
+        opacity: 0,
+        ease: "power4.out",
+        duration: 0.50,
+        stagger: 0.4,
+        scrollTrigger: {
+          trigger: ".footer-container",
+          start: "-150px center",
+          end: "400px center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".footer-sitemap-title, .footer-sitemap-link", {
+        y: 5,
+        opacity: 0,
+        ease: "power4.out",
+        duration: 0.3,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".footer-container",
+          start: "-200px center",
+          end: "bottom center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
     });
 
-    gsap.from(".footer-logo, .footer-socials-logo", {
-      y: 10,
-      opacity: 0,
-      ease: "power4.out",
-      duration: 0.75,
-      stagger: 0.4,
-      scrollTrigger: {
-        trigger: ".footer-container",
-        start: "top center",
-        end: "400px center",
-        toggleActions: "play reverse play reverse",
-        // markers: true
-      }
-    })
+    //MOBILE ANIMATIONS
+    mm.add(breakpoints.isMobile, () => {
+      gsap.from(".footer-mobile-bg-pattern", {
+        ease: "none",
+        drawSVG: "0",
+        duration: 2,
+        scrollTrigger: {
+          trigger: ".footer-container",
+          start: "-50px center",
+          end: "500px center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
 
-    gsap.from(".footer-sitemap-title, .footer-sitemap-link", {
-      y: 5,
-      opacity: 0,
-      ease: "power4.out",
-      duration: 0.30,
-      stagger: 0.2,
-      scrollTrigger: {
-        trigger: ".footer-sitemap-container",
-        start: "top center",
-        end: "bottom center",
-        toggleActions: "play reverse play reverse",
-        // markers: true
-      }
-    })
+      gsap.from(".footer-logo, .footer-socials-logo", {
+        y: 10,
+        opacity: 0,
+        ease: "power4.out",
+        duration: 0.75,
+        stagger: 0.4,
+        scrollTrigger: {
+          trigger: ".footer-container",
+          start: "top center",
+          end: "400px center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+
+      gsap.from(".footer-sitemap-title, .footer-sitemap-link", {
+        y: 5,
+        opacity: 0,
+        ease: "power4.out",
+        duration: 0.3,
+        stagger: 0.2,
+        scrollTrigger: {
+          trigger: ".footer-sitemap-container",
+          start: "top center",
+          end: "bottom center",
+          toggleActions: "play reverse play reverse",
+        },
+      });
+    });
   });
 
   return (
@@ -91,11 +135,23 @@ function FooterSection() {
             />
           </g>
         </svg>
-        <img
+        <svg
           className="max-lg:hidden absolute top-0 left-0 w-2/4"
-          src={bgFooterDesktop}
-          alt="Footer Background"
-        />
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 528 231"
+          width="100%"
+          height="100%"
+          preserveAspectRatio="xMaxYMin meet"
+        >
+          <g fill="none" fill-rule="evenodd" stroke="#E4E4E4">
+            <path className="footer-desktop-bg-pattern" d="M186.361 197.675c75.703 23.693 153.543 63.212 233.235-8.97 79.693-72.182 129.794-135.414 97.44-217.227-32.354-81.814-164.422-30.855-202.794-103.977-38.373-73.122 45.94-139.485 9.591-204.563-36.35-65.078-64.3-106.787-181.115-65.409C25.902-361.092 36.673-255.807-52.16-194.153c-88.833 61.654-184.944 153.953-53.046 318.647s215.865 49.487 291.567 73.18z" />
+            <path className="footer-desktop-bg-pattern" d="M176.895 159.751c61.583 19.24 124.905 51.33 189.734-7.283 64.828-58.614 105.585-109.959 79.266-176.393-26.32-66.434-133.755-25.055-164.971-84.43-31.216-59.377 37.372-113.266 7.802-166.11-29.57-52.845-52.306-86.713-147.334-53.113-95.028 33.6-86.267 119.094-158.53 169.158-72.265 50.064-150.45 125.012-43.153 258.747s175.603 40.184 237.186 59.424z" />
+            <path className="footer-desktop-bg-pattern" d="M159.188 134.583c49.962 15.698 101.334 41.882 153.929-5.943 52.594-47.825 85.66-89.72 64.307-143.926-21.353-54.206-108.513-20.443-133.838-68.89-25.325-48.448 30.32-92.418 6.33-135.536-23.99-43.117-42.436-70.752-119.531-43.336C53.29-235.633 60.398-165.875 1.77-125.026-56.856-84.176-120.287-23.023-33.238 86.096c87.049 109.12 142.465 32.788 192.426 48.487z" />
+            <path className="footer-desktop-bg-pattern" d="M140.684 103.816c40.295 12.596 81.728 33.603 124.147-4.768 42.419-38.371 69.087-71.984 51.865-115.475-17.221-43.491-87.518-16.402-107.943-55.273-20.425-38.87 24.453-74.148 5.105-108.743s-34.225-56.767-96.404-34.77c-62.179 21.996-56.446 77.965-103.73 110.739C-33.56-71.7-84.718-22.635-14.512 64.914c70.207 87.55 114.901 26.307 155.196 38.902z" />
+            <path className="footer-desktop-bg-pattern" d="M135.917 83.954c32.91 10.295 66.749 27.467 101.393-3.897 34.643-31.365 56.424-58.84 42.358-94.389-14.065-35.549-71.477-13.407-88.158-45.179-16.682-31.772 19.971-60.609 4.17-88.886-15.803-28.277-27.953-46.4-78.735-28.42-50.782 17.979-46.1 63.727-84.718 90.516C-6.39-59.51-48.17-19.406 9.167 52.156c57.339 71.562 93.841 21.503 126.75 31.798z" />
+            <path className="footer-desktop-bg-pattern" d="M126.775 69.594c26.718 8.36 54.191 22.305 82.318-3.165 28.127-25.47 45.81-47.78 34.39-76.649-11.419-28.868-58.03-10.887-71.574-36.688-13.544-25.8 16.214-49.217 3.385-72.18-12.83-22.963-22.694-37.68-63.923-23.08-41.229 14.6-37.428 51.75-68.78 73.505C11.238-46.908-22.684-14.34 23.868 43.772c46.553 58.112 76.188 17.462 102.907 25.822z" />
+          </g>
+        </svg>
         <div className="z-1 flex flex-col items-center mt-25 lg:flex-row lg:justify-between">
           <img className="footer-logo mb-10 z-1 lg:mb-0" src={insureLogo} alt="Insure Logo" />
           <div className="w-40 flex justify-around">
