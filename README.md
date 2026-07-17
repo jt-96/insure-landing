@@ -1,18 +1,17 @@
-# React + Vite
+# Insure Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This is a practice project from Frontend Mentor, trying to replicate the template given with a little touch of customization.
 
-Currently, two official plugins are available:
+Also trying GSAP on this project, using animations for navigation and scrolling, using Tweens, Timelines, useGSAP hook, ScrollTriggers, DrawSVG, etc.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Todo:
 
-## React Compiler
+- Check a11y.
+- Animations importing improvements.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Stack Used:
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Vite
+- React
+- Tailwind
+- GSAP
