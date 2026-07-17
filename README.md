@@ -6,6 +6,8 @@ Also trying GSAP on this project, using animations for navigation and scrolling,
 
 Available for both mobile and desktop with responsive layout.
 
+Site Link: https://adorable-cobbler-fa9783.netlify.app/
+
 Todo:
 
 - Check a11y.
